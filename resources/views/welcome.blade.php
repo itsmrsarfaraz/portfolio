@@ -8,6 +8,19 @@
                 {{ $title }}
             </h1>
             <p class="mt-4 text-gray-400">Laravel v13 + Glassmorphism</p>
+
+            <div class="flex flex-wrap gap-4 pt-4">
+                <!-- Download CV Button -->
+                <a href="{{ asset('./media/resume.pdf') }}" download class="group relative inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-blue-600 text-white font-bold transition-all hover:bg-blue-500 hover:shadow-[0_0_20px_rgba(37,99,235,0.4)]">
+                    <x-lucide-download class="w-5 h-5 group-hover:animate-bounce" />
+                    <span>Download CV</span>
+                </a>
+
+                <x-glass-card class="flex items-center gap-3 py-3 px-5">
+                    <x-lucide-award class="w-5 h-5 text-blue-400" />
+                    <span class="text-sm font-semibold">5+ Years Exp.</span>
+                </x-glass-card>
+            </div>
         </div>
     </div>
 
