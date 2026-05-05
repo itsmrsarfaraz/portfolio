@@ -76,4 +76,47 @@
             
         </div>
     </section>
+
+    <section id="about" class="max-w-6xl mx-auto px-6 py-24 border-t border-white/5">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+            
+            <!-- Left: Bio -->
+            <div class="space-y-6">
+                <h2 class="text-3xl font-bold">About Me</h2>
+                <p class="text-gray-400 leading-relaxed">
+                    I am a Senior Software Engineer based in Islamabad, focused on building scalable, multi-tenant SaaS platforms. My approach combines technical rigor with a minimalist design philosophy.
+                </p>
+                <p class="text-gray-400 leading-relaxed">
+                    With a deep background in the Laravel ecosystem and modern frontend tools, I bridge the gap between complex backend architecture and intuitive user interfaces.
+                </p>
+                
+                <div class="flex gap-4 pt-4">
+                    <x-glass-card class="flex items-center gap-3 py-3 px-5">
+                        <x-lucide-award class="w-5 h-5 text-blue-400" />
+                        <span class="text-sm font-semibold">5+ Years Exp.</span>
+                    </x-glass-card>
+                    <x-glass-card class="flex items-center gap-3 py-3 px-5">
+                        <x-lucide-check-circle class="w-5 h-5 text-green-400" />
+                        <span class="text-sm font-semibold">50+ Projects</span>
+                    </x-glass-card>
+                </div>
+            </div>
+
+            <!-- Right: Skills Grid -->
+            <x-glass-card>
+                <h3 class="text-xl font-bold mb-8">Technical Stack</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
+                    <x-skill-item name="Laravel & PHP" level="95%" />
+                    <x-skill-item name="Tailwind CSS" level="90%" />
+                    <x-skill-item name="Python (AI/ML)" level="75%" />
+                    <x-skill-item name="MySQL / Postgres" level="88%" />
+                    <x-skill-item name="WordPress/CMS" level="92%" />
+                    <x-skill-item name="REST APIs" level="95%" />
+                </div>
+            </x-glass-card>
+
+        </div>
+    </section>
+
+    <x-footer />
 </x-layout>
