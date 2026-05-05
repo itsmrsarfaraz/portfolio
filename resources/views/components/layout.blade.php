@@ -12,6 +12,10 @@
     </style>
 </head>
 <body class="bg-[#030712] text-white antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <x-navbar />
+    
     <!-- Animated Background Gradients -->
     <div class="fixed -z-10 top-0 left-0 w-full h-full overflow-hidden">
         <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-blue-600/20 blur-[120px]"></div>

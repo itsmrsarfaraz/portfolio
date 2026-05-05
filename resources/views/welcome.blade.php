@@ -10,4 +10,54 @@
             <p class="mt-4 text-gray-400">Laravel v13 + Glassmorphism</p>
         </div>
     </div>
+
+    <section id="projects" class="max-w-6xl mx-auto px-6 py-24">
+        <h2 class="text-3xl font-bold mb-12 text-center md:text-left">Selected Works</h2>
+        
+        <!-- Bento Grid Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Project 1: Large Featured Card -->
+            <div class="md:col-span-2">
+                <x-glass-card>
+                    <div class="h-64 mb-6 rounded-2xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center border border-white/5 overflow-hidden">
+                        <!-- Replace with your project image later -->
+                        <span class="text-white/20 font-bold text-4xl">SaaS Platform</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Multi-tenant Hostel System</h3>
+                    <p class="text-gray-400 mb-4">Built with Laravel 13, featuring real-time booking and automated payments.</p>
+                    <div class="flex gap-2">
+                        <span class="px-3 py-1 rounded-full bg-white/5 text-xs border border-white/10 text-gray-300">Laravel</span>
+                        <span class="px-3 py-1 rounded-full bg-white/5 text-xs border border-white/10 text-gray-300">MySQL</span>
+                    </div>
+                </x-glass-card>
+            </div>
+
+            <!-- Project 2: Small Sidebar Card -->
+            <div class="md:col-span-1">
+                <x-glass-card>
+                    <div class="h-40 mb-6 rounded-2xl bg-gradient-to-br from-orange-500/20 to-red-500/20 flex items-center justify-center border border-white/5">
+                        <span class="text-white/20 font-bold text-2xl">E-commerce</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">CMS Solutions</h3>
+                    <p class="text-gray-400 text-sm">Scalable WordPress & Elementor architectures.</p>
+                </x-glass-card>
+            </div>
+
+            <!-- Project 3: Small Card -->
+            <x-glass-card>
+                <h3 class="text-xl font-bold mb-2">Meta Ads</h3>
+                <p class="text-gray-400 text-sm">Managing digital marketing and high-converting ad cycles.</p>
+            </x-glass-card>
+
+            <!-- Project 4: Medium Card -->
+            <div class="md:col-span-2">
+                <x-glass-card>
+                    <h3 class="text-xl font-bold mb-2">API Development</h3>
+                    <p class="text-gray-400 text-sm">Designing robust RESTful APIs with advanced Laravel security and multi-layered authentication.</p>
+                </x-glass-card>
+            </div>
+            
+        </div>
+    </section>
 </x-layout>
