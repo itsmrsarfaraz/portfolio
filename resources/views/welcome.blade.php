@@ -137,9 +137,12 @@
             <p class="text-slate-500 dark:text-gray-400 mt-4">Have a project in mind? Let's build something amazing together.</p>
         </div>
 
-        <!-- This is where the POST request originates -->
         <x-contact-form />
     </section>
 
     <x-footer />
+
+    <div class="p-10 bg-white dark:bg-black">
+        Test Mode Switch
+    </div>
 </x-layout>

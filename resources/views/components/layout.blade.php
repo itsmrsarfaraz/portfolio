@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" 
+        x-data="{ darkMode: localStorage.getItem('darkMode') === 'true' }"
+        x-init="$watch('darkMode', value => localStorage.setItem('darkMode', value))"
+        :class="{ 'dark': darkMode }"
+        x-cloak>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,13 +15,22 @@
         body { font-family: 'Inter', sans-serif; }
     </style>
 </head>
-<body class="bg-[#030712] text-white antialiased overflow-x-hidden">
-
+<body class="bg-white text-slate-900 dark:bg-[#030712] dark:text-gray-300 transition-colors duration-500">
     <!-- Theme Toggle Button -->
-    <div class="fixed bottom-6 right-6 z-50">
-        <button @click="darkMode = !darkMode" class="p-3 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 backdrop-blur-md shadow-xl">
-            <x-lucide-sun x-show="darkMode" class="w-6 h-6 text-yellow-400" />
-            <x-lucide-moon x-show="!darkMode" class="w-6 h-6 text-slate-700" />
+    <div class="fixed bottom-10 right-10 z-50">
+        <button @click="darkMode = !darkMode" 
+                type="button"
+                class="p-4 rounded-2xl bg-slate-100 dark:bg-white/10 border border-slate-200 dark:border-white/10 backdrop-blur-xl shadow-2xl transition-all hover:scale-110 active:scale-95 cursor-pointer">
+            
+            <!-- Sun icon (Visible in Dark Mode) -->
+            <div x-show="darkMode" x-cloak>
+                <x-lucide-sun class="w-6 h-6 text-yellow-400" />
+            </div>
+
+            <!-- Moon icon (Visible in Light Mode) -->
+            <div x-show="!darkMode" x-cloak>
+                <x-lucide-moon class="w-6 h-6 text-slate-700" />
+            </div>
         </button>
     </div>
 
