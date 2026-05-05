@@ -1,4 +1,9 @@
 <x-glass-card class="max-w-3xl mx-auto">
+    @if(session('success'))
+        <div class="mb-6 p-4 bg-green-500/10 border border-green-500/20 text-green-400 rounded-xl text-sm">
+            {{ session('success') }}
+        </div>
+    @endif
     <form action="/contact" method="POST" class="space-y-6">
         @csrf
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">

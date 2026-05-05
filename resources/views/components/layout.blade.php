@@ -13,6 +13,14 @@
 </head>
 <body class="bg-[#030712] text-white antialiased overflow-x-hidden">
 
+    <!-- Theme Toggle Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button @click="darkMode = !darkMode" class="p-3 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 backdrop-blur-md shadow-xl">
+            <x-lucide-sun x-show="darkMode" class="w-6 h-6 text-yellow-400" />
+            <x-lucide-moon x-show="!darkMode" class="w-6 h-6 text-slate-700" />
+        </button>
+    </div>
+
     <!-- Navigation -->
     <x-navbar />
     

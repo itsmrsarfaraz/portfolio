@@ -1,5 +1,8 @@
 <?php
 
+use App\Mail\ContactMessage;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {

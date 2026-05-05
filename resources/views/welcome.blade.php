@@ -131,5 +131,15 @@
         </div>
     </section>
 
+    <section id="contact-section" class="max-w-6xl mx-auto px-6 py-24">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold">Get In Touch</h2>
+            <p class="text-slate-500 dark:text-gray-400 mt-4">Have a project in mind? Let's build something amazing together.</p>
+        </div>
+
+        <!-- This is where the POST request originates -->
+        <x-contact-form />
+    </section>
+
     <x-footer />
 </x-layout>
