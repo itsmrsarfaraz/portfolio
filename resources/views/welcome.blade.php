@@ -20,6 +20,12 @@
             <!-- Project 1: Large Featured Card -->
             <div class="md:col-span-2">
                 <x-glass-card>
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="p-3 rounded-xl bg-blue-500/20 text-blue-400">
+                            <x-lucide-layers class="w-6 h-6" />
+                        </div>
+                        <h3 class="text-2xl font-bold">Multi-tenant Hostel System</h3>
+                    </div>
                     <div class="h-64 mb-6 rounded-2xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center border border-white/5 overflow-hidden">
                         <!-- Replace with your project image later -->
                         <span class="text-white/20 font-bold text-4xl">SaaS Platform</span>
@@ -36,7 +42,11 @@
             <!-- Project 2: Small Sidebar Card -->
             <div class="md:col-span-1">
                 <x-glass-card>
-                    <div class="h-40 mb-6 rounded-2xl bg-gradient-to-br from-orange-500/20 to-red-500/20 flex items-center justify-center border border-white/5">
+                    <div class="p-3 rounded-xl bg-lime-500/20 text-lime-400 w-fit mb-4">
+                        <x-lucide-globe class="w-6 h-6" />
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">CMS Solutions</h3>
+                    <div class="h-40 mb-6 rounded-2xl bg-gradient-to-br from-lime-500/20 to-cyan-500/20 flex items-center justify-center border border-white/5">
                         <span class="text-white/20 font-bold text-2xl">E-commerce</span>
                     </div>
                     <h3 class="text-xl font-bold mb-2">CMS Solutions</h3>
@@ -46,6 +56,9 @@
 
             <!-- Project 3: Small Card -->
             <x-glass-card>
+                <div class="p-3 rounded-xl bg-purple-500/20 text-purple-400 w-fit mb-4">
+                    <x-lucide-megaphone class="w-6 h-6" />
+                </div>
                 <h3 class="text-xl font-bold mb-2">Meta Ads</h3>
                 <p class="text-gray-400 text-sm">Managing digital marketing and high-converting ad cycles.</p>
             </x-glass-card>
@@ -53,6 +66,9 @@
             <!-- Project 4: Medium Card -->
             <div class="md:col-span-2">
                 <x-glass-card>
+                    <div class="p-3 rounded-xl bg-red-500/20 text-red-400 w-fit mb-4">
+                        <x-lucide-code-xml class="w-6 h-6" />
+                    </div>
                     <h3 class="text-xl font-bold mb-2">API Development</h3>
                     <p class="text-gray-400 text-sm">Designing robust RESTful APIs with advanced Laravel security and multi-layered authentication.</p>
                 </x-glass-card>
