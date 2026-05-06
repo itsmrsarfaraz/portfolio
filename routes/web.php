@@ -2,7 +2,7 @@
 
 use App\Mail\ContactMessage;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -10,14 +10,14 @@ Route::get('/', function () {
 });
 
 Route::post('/contact', function (Request $request) {
-    $data = $request->validate([
-        'name' => 'required',
+    $validated = $request->validate([
+        'name' => 'required|string|max:255',
         'email' => 'required|email',
-        'message' => 'required',
+        'message' => 'required|string',
     ]);
 
-    // This sends the email to your primary address
-    Mail::to('itsmrsarfaraz@gmail.com')->send(new ContactMessage($data));
+    Mail::to('itsmrsarfaraz@gmail.com')
+        ->send(new ContactMessage($validated));
 
     return back()->with('success', 'Message sent successfully!');
 });

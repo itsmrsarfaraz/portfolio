@@ -1,12 +1,21 @@
 <x-mail::message>
-# Introduction
 
-The body of your message.
+# New Contact Message
 
-<x-mail::button :url="''">
-Button Text
+**Name:** {{ $data['name'] }}
+
+**Email:** {{ $data['email'] }}
+
+---
+
+## Message:
+{{ $data['message'] }}
+
+<x-mail::button :url="'mailto:' . $data['email']">
+Reply to Sender
 </x-mail::button>
 
 Thanks,<br>
 {{ config('app.name') }}
+
 </x-mail::message>
