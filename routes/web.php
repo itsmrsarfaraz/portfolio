@@ -36,15 +36,15 @@ Route::post('/contact', function (Request $request) {
         'message' => 'required|string',
     ]);
 
-    Mail::to('itsmrsarfaraz@gmail.com')
-        ->send(new ContactMessage($validated));
-
     $lead = Lead::create([
         'name' => $validated['name'],
         'email' => $validated['email'],
         'message' => $validated['message'],
         'ip' => $request->ip(),
     ]);
+
+    Mail::to('itsmrsarfaraz@gmail.com')
+        ->send(new ContactMessage($lead));
 
     return back()->with('success', 'Message sent successfully!');
 });
