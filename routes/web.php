@@ -50,5 +50,6 @@ Route::post('/contact', function (Request $request) {
 });
 
 Route::get('/admin/leads', function () {
-    return \App\Models\Lead::latest()->get();
+    $leads = \App\Models\Lead::latest()->get();
+    return view('admin.leads', compact('leads'));
 });
