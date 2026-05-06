@@ -48,3 +48,7 @@ Route::post('/contact', function (Request $request) {
 
     return back()->with('success', 'Message sent successfully!');
 });
+
+Route::get('/admin/leads', function () {
+    return \App\Models\Lead::latest()->get();
+});
