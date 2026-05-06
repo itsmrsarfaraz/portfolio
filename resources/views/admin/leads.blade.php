@@ -4,26 +4,25 @@
 
         <div class="flex flex-col-3 gap-4">
             @foreach($leads as $lead)
-                <div class="w-full">
-                    <x-glass-card>
-                        <div class="flex justify-between">
-                            <div>
-                                <h2 class="font-bold">{{ $lead->name }}</h2>
-                                <p class="text-sm text-gray-400">{{ $lead->email }}</p>
-                            </div>
-                            <form method="POST" action="/admin/leads/{{ $lead->id }}/status">
-                                @csrf
-                                <select name="status" onchange="this.form.submit()" class="bg-gray-800 text-white rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                    <option value="new" {{ $lead->status == 'new' ? 'selected' : '' }}>New</option>
-                                    <option value="contacted" {{ $lead->status == 'contacted' ? 'selected' : '' }}>Contacted</option>
-                                    <option value="closed" {{ $lead->status == 'closed' ? 'selected' : '' }}>Closed</option>
-                                </select>
-                            </form>
-                        </div>
+            <div class="glass-card p-4 mb-4">
+                <div class="flex justify-between">
+                    <div>
+                        <h3 class="font-bold">{{ $lead->name }}</h3>
+                        <p class="text-sm text-gray-400">{{ $lead->email }}</p>
+                    </div>
 
-                        <p class="mt-4 text-gray-300">{{ $lead->message }}</p>
-                    </x-glass-card>
+                    <form method="POST" action="/admin/leads/{{ $lead->id }}/status">
+                        @csrf
+                        <select name="status" onchange="this.form.submit()"
+                            class="bg-black/20 text-white border rounded px-2 py-1">
+                            <option {{ $lead->status == 'new' ? 'selected' : '' }}>new</option>
+                            <option {{ $lead->status == 'contacted' ? 'selected' : '' }}>contacted</option>
+                            <option {{ $lead->status == 'qualified' ? 'selected' : '' }}>qualified</option>
+                            <option {{ $lead->status == 'lost' ? 'selected' : '' }}>lost</option>
+                        </select>
+                    </form>
                 </div>
+            </div>
             @endforeach
         </div>
     </div>
