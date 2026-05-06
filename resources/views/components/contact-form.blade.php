@@ -6,6 +6,12 @@
     @endif
     <form action="/contact" method="POST" class="space-y-6">
         @csrf
+        <!-- Honeypot -->
+        <div class="hidden">
+            <input type="text" name="company" tabindex="-1" autocomplete="off">
+        </div>
+        {{-- time stamps - bots submits instantly --}}
+        <input type="hidden" name="form_time" value="{{ time() }}">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
                 <label class="block text-sm font-medium text-gray-400 mb-2">Name</label>
