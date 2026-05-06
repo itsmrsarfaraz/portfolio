@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\LeadController;
 use App\Http\Controllers\ProfileController;
 use App\Mail\ContactMessage;
 use App\Models\Lead;
@@ -94,27 +95,13 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
         return view('admin.dashboard');
     })->name('admin.dashboard');
 
-    Route::get('/leads', function () {
-        abort_unless(auth()->user()->is_admin, 403);
+    Route::get('/leads', [LeadController::class, 'index'])
+        ->middleware('can:admin')
+        ->name('admin.leads');
 
-        $leads = Lead::latest()->get();
-
-        return view('admin.leads', compact('leads'));
-    })->name('admin.leads');
-
-    Route::post('/leads/{lead}/status', function (Request $request, Lead $lead) {
-        abort_unless(auth()->user()->is_admin, 403);
-
-        $request->validate([
-            'status' => 'required|string|max:50'
-        ]);
-
-        $lead->update([
-            'status' => $request->status
-        ]);
-
-        return back();
-    })->name('admin.leads.status');
+    Route::post('/leads/{lead}/status', [LeadController::class, 'updateStatus'])
+        ->middleware('can:admin')
+        ->name('admin.leads.status');
 });
 
 require __DIR__ . '/auth.php';
