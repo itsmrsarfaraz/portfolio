@@ -49,7 +49,16 @@ Route::post('/contact', function (Request $request) {
     return back()->with('success', 'Message sent successfully!');
 });
 
-Route::get('/admin/leads', function () {
-    $leads = \App\Models\Lead::latest()->get();
-    return view('admin.leads', compact('leads'));
+Route::middleware('auth.basic')->group(function () {
+    Route::get('/admin/leads', function () {
+        $leads = \App\Models\Lead::latest()->get();
+        return view('admin.leads', compact('leads'));
+    });
+    Route::post('/admin/leads/{lead}/status', function (Request $request, \App\Models\Lead $lead) {
+        $lead->update([
+            'status' => $request->input('status')
+        ]);
+
+        return back();
+    });
 });
