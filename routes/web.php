@@ -1,6 +1,7 @@
 <?php
 
 use App\Mail\ContactMessage;
+use App\Models\Lead;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
@@ -37,6 +38,13 @@ Route::post('/contact', function (Request $request) {
 
     Mail::to('itsmrsarfaraz@gmail.com')
         ->send(new ContactMessage($validated));
+
+    $lead = Lead::create([
+        'name' => $validated['name'],
+        'email' => $validated['email'],
+        'message' => $validated['message'],
+        'ip' => $request->ip(),
+    ]);
 
     return back()->with('success', 'Message sent successfully!');
 });
