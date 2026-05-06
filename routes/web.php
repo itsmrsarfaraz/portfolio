@@ -1,33 +1,48 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use App\Mail\ContactMessage;
 use App\Models\Lead;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Public Routes
+|--------------------------------------------------------------------------
+*/
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+/*
+|--------------------------------------------------------------------------
+| Contact Form (Public CRM Lead Capture)
+|--------------------------------------------------------------------------
+*/
+
 Route::post('/contact', function (Request $request) {
+
     $key = 'contact-form-' . $request->ip();
 
+    // Rate limit protection (3 requests per minute)
     if (RateLimiter::tooManyAttempts($key, 3)) {
         return back()->withErrors(['Too many attempts. Try again later.']);
     }
 
-    RateLimiter::hit($key, 60); // 3 attempts per minute
+    RateLimiter::hit($key, 60);
 
-    // Honeypot check
+    // Honeypot anti-bot field
     if ($request->filled('company')) {
-        return back(); // silently drop bot
+        return back();
     }
 
-    // time stamp check - bots submit instantly human don't
-    if (time() - $request->input('form_time') < 3) {
-        return back(); // too fast = bot
+    // Simple timing protection (bot detection)
+    if ($request->has('form_time') && time() - $request->input('form_time') < 3) {
+        return back();
     }
 
     $validated = $request->validate([
@@ -49,16 +64,57 @@ Route::post('/contact', function (Request $request) {
     return back()->with('success', 'Message sent successfully!');
 });
 
-Route::middleware('auth.basic')->group(function () {
-    Route::get('/admin/leads', function () {
-        $leads = \App\Models\Lead::latest()->get();
+/*
+|--------------------------------------------------------------------------
+| Authenticated User Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::middleware(['auth', 'verified'])->group(function () {
+
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+/*
+|--------------------------------------------------------------------------
+| Admin Panel (Role Protected CRM Layer)
+|--------------------------------------------------------------------------
+*/
+
+Route::middleware(['auth'])->prefix('admin')->group(function () {
+
+    Route::get('/', function () {
+        abort_unless(auth()->user()->is_admin, 403);
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
+
+    Route::get('/leads', function () {
+        abort_unless(auth()->user()->is_admin, 403);
+
+        $leads = Lead::latest()->get();
+
         return view('admin.leads', compact('leads'));
-    });
-    Route::post('/admin/leads/{lead}/status', function (Request $request, \App\Models\Lead $lead) {
+    })->name('admin.leads');
+
+    Route::post('/leads/{lead}/status', function (Request $request, Lead $lead) {
+        abort_unless(auth()->user()->is_admin, 403);
+
+        $request->validate([
+            'status' => 'required|string|max:50'
+        ]);
+
         $lead->update([
-            'status' => $request->input('status')
+            'status' => $request->status
         ]);
 
         return back();
-    });
+    })->name('admin.leads.status');
 });
+
+require __DIR__ . '/auth.php';

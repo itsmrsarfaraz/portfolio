@@ -15,12 +15,12 @@
         body { font-family: 'Inter', sans-serif; }
     </style>
 </head>
-<body class="bg-white text-slate-900 dark:bg-[#030712] dark:text-gray-300 transition-colors duration-500">
+<body class="bg-white text-slate-900 transition-colors duration-500">
     <!-- Theme Toggle Button -->
     <div class="fixed bottom-10 right-10 z-50">
         <button @click="darkMode = !darkMode" 
                 type="button"
-                class="p-4 rounded-2xl bg-slate-100 dark:bg-white/10 border border-slate-200 dark:border-white/10 backdrop-blur-xl shadow-2xl transition-all hover:scale-110 active:scale-95 cursor-pointer">
+                class="p-4 rounded-2xl bg-slate-100 border border-slate-200 backdrop-blur-xl shadow-2xl transition-all hover:scale-110 active:scale-95 cursor-pointer">
             
             <!-- Sun icon (Visible in Dark Mode) -->
             <div x-show="darkMode" x-cloak>
