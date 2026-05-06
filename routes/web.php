@@ -88,7 +88,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 |--------------------------------------------------------------------------
 */
 
-Route::middleware(['auth'])->prefix('admin')->group(function () {
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
 
     Route::get('/', function () {
         abort_unless(auth()->user()->is_admin, 403);
@@ -96,11 +96,9 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     })->name('admin.dashboard');
 
     Route::get('/leads', [LeadController::class, 'index'])
-        ->middleware('can:admin')
         ->name('admin.leads');
 
     Route::post('/leads/{lead}/status', [LeadController::class, 'updateStatus'])
-        ->middleware('can:admin')
         ->name('admin.leads.status');
 });
 
