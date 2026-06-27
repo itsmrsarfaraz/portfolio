@@ -129,7 +129,7 @@ export default function LearningHub() {
 
               <h4 style={{ fontSize: '1.1rem', fontWeight: 600, marginBottom: '0.5rem', color: '#fff' }}>2. What are Props?</h4>
               <p style={{ color: 'var(--text-secondary)', marginBottom: '1.25rem' }}>
-                Props are read-only properties passed down from a parent component to a child component. For example, in our portfolio, [App.jsx](file:///home/itsmrsarfaraz/portfolio/src/App.jsx) holds the state of the active page tab, and passes it to [Navbar.jsx](file:///home/itsmrsarfaraz/portfolio/src/components/Navbar.jsx) so it can highlight the correct link:
+                Props are read-only properties passed down from a parent component to a child component. For example, in our portfolio, [App.jsx](https://github.com/itsmrsarfaraz/portfolio/blob/main/src/App.jsx) holds the state of the active page tab, and passes it to [Navbar.jsx](https://github.com/itsmrsarfaraz/portfolio/blob/main/src/components/Navbar.jsx) so it can highlight the correct link:
               </p>
 
               <div style={{ background: '#05070f', padding: '1rem', borderRadius: '8px', fontFamily: 'var(--font-mono)', fontSize: '0.8rem', border: '1px solid rgba(255,255,255,0.04)', color: '#9ca3af' }}>
@@ -169,7 +169,7 @@ export default function LearningHub() {
               <div style={{ background: 'rgba(139, 92, 246, 0.05)', border: '1px solid rgba(139, 92, 246, 0.2)', padding: '1rem', borderRadius: '8px' }}>
                 <span style={{ fontSize: '0.85rem', fontWeight: 600, display: 'block', marginBottom: '0.25rem', color: 'var(--color-primary)' }}>Live Demo Connection:</span>
                 <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
-                  In our [EdgeDrlDemo.jsx](file:///home/itsmrsarfaraz/portfolio/src/components/EdgeDrlDemo.jsx), we track metrics like `reward` and `latency` using `useState`. Clicking <strong>Run Simulation</strong> changes those states periodically, dynamically updating progress bars and labels!
+                  In our [EdgeDrlDemo.jsx](https://github.com/itsmrsarfaraz/portfolio/blob/main/src/components/EdgeDrlDemo.jsx), we track metrics like `reward` and `latency` using `useState`. Clicking <strong>Run Simulation</strong> changes those states periodically, dynamically updating progress bars and labels!
                 </span>
               </div>
             </div>
@@ -203,7 +203,7 @@ export default function LearningHub() {
               <div style={{ background: 'rgba(6, 182, 212, 0.05)', border: '1px solid rgba(6, 182, 212, 0.2)', padding: '1rem', borderRadius: '8px' }}>
                 <span style={{ fontSize: '0.85rem', fontWeight: 600, display: 'block', marginBottom: '0.25rem', color: 'var(--color-secondary)' }}>Live Demo Connection:</span>
                 <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
-                  In our [Hero.jsx](file:///home/itsmrsarfaraz/portfolio/src/components/Hero.jsx), we run a typing text timer loop. We use `useEffect` to trigger a `setTimeout` callback. The effect cleans up after itself via `clearTimeout(timer)` to prevent memory leaks during page navigation.
+                  In our [Hero.jsx](https://github.com/itsmrsarfaraz/portfolio/blob/main/src/components/Hero.jsx), we run a typing text timer loop. We use `useEffect` to trigger a `setTimeout` callback. The effect cleans up after itself via `clearTimeout(timer)` to prevent memory leaks during page navigation.
                 </span>
               </div>
             </div>
@@ -215,7 +215,7 @@ export default function LearningHub() {
                 Real Code walkthrough: Typing Effect
               </h3>
               <p style={{ color: 'var(--text-secondary)', marginBottom: '1.25rem' }}>
-                Take a look at the exact code block that powers the typing simulator in the header of this portfolio ([Hero.jsx](file:///home/itsmrsarfaraz/portfolio/src/components/Hero.jsx)):
+                Take a look at the exact code block that powers the typing simulator in the header of this portfolio ([Hero.jsx](https://github.com/itsmrsarfaraz/portfolio/blob/main/src/components/Hero.jsx)):
               </p>
 
               <div style={{ background: '#05070f', padding: '1rem', borderRadius: '8px', fontFamily: 'var(--font-mono)', fontSize: '0.75rem', border: '1px solid rgba(255,255,255,0.04)', overflowX: 'auto', color: '#9ca3af', lineHeight: '1.4' }}>
